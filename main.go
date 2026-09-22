@@ -96,6 +96,9 @@ func main() {
 		ReadHeaderTimeout: 5 * time.Second,
 	}
 	safePort, err := strconv.Atoi(port)
+	if err != nil {
+		log.Printf("Port error %s", err)
+	}
 	log.Printf("Serving on port: %d\n", safePort)
 	log.Fatal(srv.ListenAndServe())
 }
